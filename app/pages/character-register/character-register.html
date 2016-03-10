@@ -1,0 +1,29 @@
+<ion-navbar *navbar>
+  <button menuToggle *ngIf="!selectedItem">
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Character Register</ion-title>
+</ion-navbar>
+
+<ion-content>
+  <ion-list>
+   <ion-item>
+     <ion-label fixed>Name</ion-label>
+     <ion-input type="text" [(ngModel)]="actualCharacter.name"></ion-input>
+   </ion-item>
+   <ion-item>
+     <ion-label fixed>Description</ion-label>
+     <ion-input type="text" [(ngModel)]="actualCharacter.description"></ion-input>
+   </ion-item>
+   <ion-list-header>
+     Atributes
+   </ion-list-header>
+   <ion-item *ngFor="#atribute of actualCharacter.atributes">
+    <ion-label fixed>{{atribute.name}}</ion-label>
+    <ion-input type="number" [(ngModel)]="atribute.value"></ion-input>
+  </ion-item>
+
+
+ </ion-list>
+ <button block nav-pop (click)="registerCharacter()">Register</button>
+</ion-content>

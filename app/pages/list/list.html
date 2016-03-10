@@ -1,0 +1,27 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Character List</ion-title>
+  <ion-buttons end>
+    <button (click)="openRegister($event)">
+      <ion-icon name="person-add"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+<ion-content>
+  <ion-list>
+
+    <ion-item *ngFor="#item of characterList" >
+      <div (click)="itemTapped($event, item)">
+        {{item.name}}
+        <div class="item-note" item-right>
+          {{item.description}}
+        </div>
+      </div>
+      <button danger clear item-right (click)="deleteItem($event, item)">
+        <ion-icon red name="close-circle"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
